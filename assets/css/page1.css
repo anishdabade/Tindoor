@@ -1,0 +1,30 @@
+body {
+	text-align: center;
+	background: url("../images/background.jpg");
+
+	
+}
+
+#job-title {
+	width:30%;
+	text-align: center;
+	margin-left: 250px;
+}
+
+#row1 {
+	font-family: "Arial Black";
+	margin-top: -15px;
+}
+.panel {
+	width:30%;
+	margin-left: 250px;
+}
+
+.jumbotron {
+	padding: 20px;
+	background: #fa8072;
+	font-family: "Brush Script MT", cursive;
+	font-size: 18px;
+	
+	
+}
