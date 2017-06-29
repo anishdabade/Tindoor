@@ -1,0 +1,43 @@
+.panel-body {
+	background-color: white;
+	text-align: center;
+}
+
+body {
+	background: url("../images/noisy_grid/noisy_grid.png");
+}
+
+h1 {
+	font-size: 135px;
+	color: #019BAD;
+	font-family: 'Yellowtail', cursive;
+}
+
+h2 {
+	font-family: 'Oswald', sans-serif;
+	color: #93BAB0;
+	font-size: 30px;
+}
+
+#header-one {
+	padding: 20px;
+}
+
+h3 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 20px;
+	color: #005B54;
+	margin: 5px;
+}
+
+h4 {
+	font-size: 25px;
+	font-family: 'Oswald', sans-serif;
+	color: #0990C4;
+}
+
+p{
+	font-size: 18px;
+	font-family: 'Oswald', sans-serif;
+	color: #0990C4;
+}
