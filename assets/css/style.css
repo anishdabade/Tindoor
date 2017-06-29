@@ -1,0 +1,44 @@
+/*font-family: 'EB Garamond', serif;
+font-family: 'Yellowtail', cursive;
+font-family: 'Oswald', sans-serif;*/
+
+/* LIGHT: 	2175BA
+			0990C4
+BASE COLOR: 019BAD
+			005B54
+			93BAB0*/
+
+body {
+	background: url("../images/noisy_grid/noisy_grid.png");
+}
+
+#search-results {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+h1 {
+	font-size: 150px;
+	color: #019BAD;
+	font-family: 'Yellowtail', cursive;
+}
+
+p {
+	font-family: 'Oswald', sans-serif;
+	color: #2175BA;
+	font-size: 40px;
+}
+
+#header-one {
+	padding: 20px;
+}
+/*
+.panel > .panel-heading {
+    background-image: none;
+    color: white;
+	background-color: #E8C79C;
+}*/
+
+.panel-body {
+	background-color: white;
+}
