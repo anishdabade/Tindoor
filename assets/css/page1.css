@@ -1,8 +1,14 @@
 body {
 	text-align: center;
-	background: url("../images/background.jpg");
+	background: url("../images/noisy_grid/noisy_grid_@2X.png");
 
 	
+}
+
+h1 {
+	font-size: 135px;
+	color: #019BAD;
+	font-family: 'Yellowtail', cursive;
 }
 
 #job-title {
@@ -22,7 +28,7 @@ body {
 
 .jumbotron {
 	padding: 20px;
-	background: #fa8072;
+	background: red;
 	font-family: "Brush Script MT", cursive;
 	font-size: 18px;
 	
