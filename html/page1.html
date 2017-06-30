@@ -28,9 +28,9 @@
 			    <h3>Job Title</h3>
 			  </div>
 			  <div class="panel-body">
-			    <p>Developer</p>
-			    <p>Engineer</p>
-			    <p>Teacher</p>
+			    <div class="col-md-12">
+				    <input class="form-control" type="text" value="Job Title" id="job-input">
+				  </div>
 			  </div>
 			</div>
 		</div>
@@ -41,13 +41,17 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    <h3>Job Title</h3>
+			    <h3>Location</h3>
 			  </div>
 			  <div class="panel-body">
-			    <p>0-2</p>
-			    <p>2-5</p>
-			    <p>5-10</p>
-			    <p>10+</p>
+			  	<div class="form-group row">
+				  <div class="col-md-10">
+				    <input class="form-control" type="text" value="City" id="city-input">
+				  </div>
+				  <div class="col-md-2">
+				    <input class="form-control" type="text" value="State" id="state-input">
+				  </div>
+				</div>    
 			  </div>
 			</div>
 		</div>
@@ -59,15 +63,21 @@
 			<div class="panel panel-default">
 			  <div class="panel-heading" id="radius">
 			    <h3>Radius</h3>
-			    <p>Type in the distance for your search options.</p>
+			    <p>Select the distance for your search options.</p>
 			  </div>
 			  <div class="panel-body" id="radius-answer">
-			    <input type="radio" name="distance" value="5"> 5 miles <br>
-		        <input type="radio" name="distance" value="10"> 10 miles <br>
-		        <input type="radio" name="distance" value="15"> 15 miles <br>
-		        <input type="radio" name="distance" value="20"> 20 miles
+			    <input type="radio" name="radius-5" value="5"> 5 miles <br>
+		        <input type="radio" name="radius-10" value="10"> 10 miles <br>
+		        <input type="radio" name="radius-15" value="15"> 15 miles <br>
+		        <input type="radio" name="radius-20" value="20"> 20 miles
 			  </div>
 			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<button type="button" class="btn btn-primary" id="submit-button">Primary</button>
 		</div>
 	</div>
 
