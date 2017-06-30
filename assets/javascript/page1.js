@@ -19,30 +19,30 @@
   firebase.initializeApp(config);
 
 
-  var jobTitle = response.results[i].jobtitle;
-  var locationCity = response.results[i].city;
-  var locationState = response. results[i].state;
-  var jobDescription = response.results[i].snippet;
+  // var jobTitle = response.results[i].jobtitle;
+  // var locationCity = response.results[i].city;
+  // var locationState = response. results[i].state;
+  // var jobDescription = response.results[i].snippet;
 
   // Grab the input from text
   var jobTitle = $("#job-input").val().trim();
   var location = $("#city-input").val().trim();
   var state = $("#state-input").val().trim();
 
-  $("input[name='radius-5']").click(function(){ 
-    var radius = $("input[name='radius-5']:checked").val();
+  $("input[name='radius']").click(function(){ 
+    var radius = $("input[name='radius']:checked").val();
    });
    
-   $("input[name='radius-10']").click(function(){ 
-    var radius = $("input[name='radius-10']:checked").val();
+   $("input[name='radius']").click(function(){ 
+    var radius = $("input[name='radius']:checked").val();
    });
 
-   $("input[name='radius-15']").click(function(){ 
-    var radius = $("input[name='radius-15']:checked").val();
+   $("input[name='radius']").click(function(){ 
+    var radius = $("input[name='radius']:checked").val();
    });
 
-   $("input[name='radius-20']").click(function(){ 
-    var radius = $("input[name='radius-20']:checked").val();
+   $("input[name='radius']").click(function(){ 
+    var radius = $("input[name='radius']:checked").val();
    });
 
   // Select the year of experience
@@ -51,15 +51,22 @@
 
   //Select the radius in miles
 
-  var queryURL = "http://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+ jobTitle +"&l="+ location +"%2C+"+state+"&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json"
+  //var queryURL = "http://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+ jobTitle +"&l="+ location +"%2C+"+state+"&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json"
 
-
+  var queryURL = "http://api.indeed.com/ads/apisearch?publisher=1665103808901378&q=java&l=austin%2C+tx&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json";
+// $("#submit-button").on("click",function(event) {
+  // event.preventDefault();
   $.ajax({
     url: queryURL,
     method: "GET"
     }).done(function(response) {
       console.log(response);
        });
+
+
+    
+  // });
+  
   /*
   1) Grab the input fro min
   /*
