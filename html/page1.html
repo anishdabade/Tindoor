@@ -1,54 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TINDOOR</title>
-	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Added Moment JS -->
-  	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<title>Tindoor Job Search</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Oswald|Yellowtail" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../assets/css/page1.css"></style>
 </head>
 <body>
-<div class="container">
 
-<div style= "background: #BB9C8E", class="jumbotron">
-  <h1 class="text-center">TINDOOR</h1>
+<!--This contains everything and is useful for CSS editing later-->
+<div class="row text-center" id="header-one">
+    <h1>
+    <!-- <i class="fa fire-extinguisher" aria-hidden="true"></i> -->
+    Tindoor</h1>
+    <h2>Begin your job search today!</h2>
+    <hr>
 </div>
 
+<div class="container">
+
 <div class="row">
-	<div class="col-lg-12">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            	<h4 class="panel-title">Job Title</h3>
-          </div>
-<div class="row">
-	<div class="col-lg-12">
-		<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Job Title<label>
-    <input type="text" class="form-control" id="job_title">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Years Experience</label>
-    <input type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">Location</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+	    
+	<div class="row">
+		<div class="col-md-12">
+		  	<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3>Job Title</h3>
+			  </div>
+			  <div class="panel-body">
+			    <div class="col-md-12">
+				    <input class="form-control" type="text" placeholder="Job Title" id="job-input">
+				  </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div id="test"></div>
 
 
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3>Location</h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="form-group row">
+				  <div class="col-md-10">
+				    <input class="form-control" type="text" placeholder="City" id="city-input">
+				  </div>
+				  <div class="col-md-2">
+				    <input class="form-control" type="text" placeholder="State" id="state-input">
+				  </div>
+				</div>    
+			  </div>
+			</div>
+		</div>
 	</div>
 
 
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+			  <div class="panel-heading" id="radius">
+			    <h3>Radius</h3>
+			    <p>Select the distance for your search options.</p>
+			  </div>
+			  <div class="panel-body" id="radius-answer">
+			    <input type="radio" name="radius-5" value="5"> 5 miles <br>
+		        <input type="radio" name="radius-10" value="10"> 10 miles <br>
+		        <input type="radio" name="radius-15" value="15"> 15 miles <br>
+		        <input type="radio" name="radius-20" value="20"> 20 miles
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<button type="button" class="btn btn-primary" id="submit-button">Primary</button>
+		</div>
+	</div>
+
+
+
+
 </div>
+
+</div>
+<div class="row text-center" id="header-one">
+    <h1>
+    <!-- <i class="fa fire-extinguisher" aria-hidden="true"></i> -->
+    Tindoor</h1>
+    <h2>Begin your job search today!</h2>
+    <hr>
+</div>
+
+  <div class="container">
+
+
+    <div class="row panel panel-default">
+
+      <div class="panel-heading", id="test">
+          <h3>Search Results</h3>
+       </div>
+       		<div class="container" id="search-results">
+
+	          <div class="panel-body">
+	          	<div class="row">
+	          		<div class="col-md-5">
+	          		<!-- 	<img id="logo"> -->
+	          			<div id="map"></div>	
+	          		</div>
+	          		<div class="col-md-7">
+	          			<div class="text-ceter", id="result-1">
+	          				<!-- <div id="job-tilte">Job Title</div>
+	          				<div id="location">Location</div>
+	          				<div id="description">Description</div> -->
+	          			<div>
+<!-- 
+	          		<h3>My Google Maps Demo</h3> -->
+    				
+	          		</div>
+	          		<div>
+	          			<div class="col-md-4" id="append-logo"></div>
+	          			<div class="col-md-8" id="append-info"></div>
+	          		</div>
+	          	</div>
+	          </div>
+           
+          </div>
+
+
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<!-- <script type="text/javascript" src="../javascript/page2.js"></script> -->
+ <script type="text/javascript" src="../javascript/page1.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEqiSu63n6-F2BKTTuF_CnvsTpyUsYiNM&callback=initMap"">
+    </script>
+
+
 
 </body>
 </html>
