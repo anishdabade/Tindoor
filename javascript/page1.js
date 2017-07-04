@@ -80,12 +80,17 @@ $("#submit-button").on("click", function(event){
   var state = $("#state-input").val().trim();
   state = formatQueryString(state);
 
+  // $('#radius-answer').on('change', function(){
+  //   var radius = $('input[type="radio"]:checked','#radius-answer' ).val();
+
+  // });
+  var radius = $('input[type="radio"]:checked').val();
   // console.log(title);
   // console.log(city);
   // console.log(state);
 // "https://cors-anywhere.herokuapp.com/"
-
-var queryURL = "https://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+title+"&l="+city+"%2C+"+state+"&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json"
+console.log("I am here =" + radius);
+var queryURL = "https://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+title+"&l="+city+"%2C+"+state+"&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json"
 // console.log(queryURL);
 
 // $('#test').html(queryURL);
