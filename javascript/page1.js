@@ -64,7 +64,7 @@
 
 
 //===========================================================
- $(document).ready(function(){
+ // $(document).ready(function(){
 
 
 
@@ -83,7 +83,7 @@
   // var locations="";
   // var latitudes="";
   // var longitudes="";
-  var flacation = [];
+  // var flacation = [];
 
   var map;
  
@@ -165,8 +165,11 @@ $("#submit-button").on("click", function(event) {
     // console.log(jobTitle);
     // console.log(location);       
     answer = response;
+
   for (var i=0; i<response.results.length; i++) {
+
     resultCounter++;
+
     var resultSection = $("<div>");
     var url = response.results[i].url;
     resultSection.addClass= ("text-center");
@@ -243,7 +246,7 @@ $("#submit-button").on("click", function(event) {
               // });
 
                //});
-}); // document on ready
+// }); // document on ready
 
     function initMap() {
         var options = {
@@ -272,12 +275,12 @@ $("#submit-button").on("click", function(event) {
         var marker = new google.maps.Marker({
           position: tribeca,
           map: map,
-          // title: sv.company,
-        // };
-        // function addMarker(coords){
-        //   var marker = new google.maps.Marker({
-        //     position:coords,
-        //     map:map,
+            // title: sv.company,
+          // };
+          // function addMarker(coords){
+          //   var marker = new google.maps.Marker({
+          //     position:coords,
+          //     map:map,
          });
         var companies = sv.company;
 
@@ -289,28 +292,7 @@ $("#submit-button").on("click", function(event) {
         });
 
        });
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      }
 
 
   // $("#result-1").append(resultSection);
@@ -324,4 +306,3 @@ $("#submit-button").on("click", function(event) {
   // var locationCity = response.results[i].city;
   // var locationState = response. results[i].state;
   // var jobDescription = response.results[i].snippet;
-
