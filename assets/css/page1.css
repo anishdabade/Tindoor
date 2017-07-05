@@ -1,3 +1,13 @@
+/*font-family: 'EB Garamond', serif;
+font-family: 'Yellowtail', cursive;
+font-family: 'Oswald', sans-serif;*/
+
+/* LIGHT: 	2175BA
+			0990C4
+BASE COLOR: 019BAD
+			005B54
+			93BAB0*/
+
 
 .panel-body {
 	background-color: white;
@@ -49,4 +59,5 @@ p{
 	font-size: 18px;
 	font-family: 'Oswald', sans-serif;
 	color: #0990C4;
+	margin-left: 5px;
 }
