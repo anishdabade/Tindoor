@@ -57,6 +57,48 @@ function validateForm() {
 // console.log(longitudes); 
 // }
 
+function initMap() {
+  var options = {
+    zoom: 10,
+    center: {lat: 37.773972, lng: -122.431297}
+  };
+    
+  var map = new google.maps.Map(document.getElementById('map'), options);
+    
+  database.ref().limitToLast(10).on("child_added", function(snapshot) {
+    var sv = snapshot.val();
+    // console.log("ddd" + response);
+    //console.log(sv.longitude);
+
+    // flacation=[sv.company, sv.latitude, sv.longitude];
+    // console.log("re+++" + flacation);
+        
+      // for (var i = 0; i < 10; i++) {
+        // console.log(sv.latitude);
+          // console.log(sv.longitude);
+        var tribeca = {lat: sv.latitude, lng: sv.longitude};
+        var marker = new google.maps.Marker({
+          position: tribeca,
+          map: map,
+          // title: sv.company,
+        // };
+        // function addMarker(coords){
+        //   var marker = new google.maps.Marker({
+        //     position:coords,
+        //     map:map,
+        });
+
+        var companies = sv.company;
+
+        var infowindow = new google.maps.InfoWindow({
+          content: companies
+        })
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+  });
+}
+
 
 function getData() {
   var jobTitle = $("#job-input").val().trim();
@@ -144,49 +186,3 @@ $("#submit-button").on("click", function(event) {
 });//onclick
 
 }); // document on ready
-
-    function initMap() {
-        var options = {
-          zoom: 4,
-          center: {lat: 30.395605, lng: -97.74725}
-          };
-        
-       var map = new google.maps.Map(document.getElementById('map'), options);
-        
-        database.ref().limitToLast(10).on("child_added", function(snapshot) {
-          var sv = snapshot.val();
-          // console.log("ddd" + response);
-
-
-// console.log(sv.longitude);
-
-       // flacation=[sv.company, sv.latitude, sv.longitude];
-
-       // console.log("re+++" + flacation);
-        
-        //
-        // for (var i = 0; i < 10; i++) {
-        // console.log(sv.latitude);
-          // console.log(sv.longitude);
-        var tribeca = {lat: sv.latitude, lng: sv.longitude};
-        var marker = new google.maps.Marker({
-          position: tribeca,
-          map: map,
-          // title: sv.company,
-        // };
-        // function addMarker(coords){
-        //   var marker = new google.maps.Marker({
-        //     position:coords,
-        //     map:map,
-         });
-        var companies = sv.company;
-
-       var infowindow = new google.maps.InfoWindow({
-          content: companies
-        })
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
-
-       });
-      }
