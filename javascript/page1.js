@@ -30,7 +30,32 @@ function validateForm() {
       $("#error").empty();
       getData();
     }
-  }
+}
+
+//function googleMapLat {
+  // database.ref().limitToLast(10).on("value", function(snapshot) {
+// var sv = snapshot.val();
+
+//       // Console.loging the last user's data
+//       // console.log(sv.location);
+//       // console.log(sv.latitude);
+//       // console.log(sv.longitude);
+//      latitudes = sv.latitude;
+
+//       // locations = sv.location;
+//       // latitudes = sv.latitude;
+//       // longitudes = sv.longitude;
+//       // Handle the errors
+
+//       // console.log("I am here: loation" + location);
+//     });
+
+//   });//snapshot
+
+// console.log(sv.);
+// console.log(latitudes);
+// console.log(longitudes); 
+// }
 
 
 function getData() {
@@ -116,49 +141,8 @@ $("#submit-button").on("click", function(event) {
   event.preventDefault();
   validateForm();
 
-// // database.ref().limitToLast(10).on("value", function(snapshot) {
-// // var sv = snapshot.val();
-
-// //       // Console.loging the last user's data
-// //       // console.log(sv.location);
-// //       // console.log(sv.latitude);
-// //       // console.log(sv.longitude);
-// //      latitudes = sv.latitude;
-
-// //       // locations = sv.location;
-// //       // latitudes = sv.latitude;
-// //       // longitudes = sv.longitude;
-// //       // Handle the errors
-
-// //       // console.log("I am here: loation" + location);
-// //     });
-
-//   });//response
-
-// console.log(sv.);
-// console.log(latitudes);
-// console.log(longitudes); 
-
 });//onclick
 
-
-
-
-
-
-              // database.ref().limitToLast(10).on("child_added", function(snapshot) {
-              // var sv = snapshot.val();
-
-              // // console.log(sv.company);
-              // // console.log(sv.latitude);
-              // // console.log(sv.longitude);
-
-              // flacation=[sv.company, sv.latitude, sv.longitude];
-
-              // // console.log(flacation);
-              // });
-
-               //});
 }); // document on ready
 
     function initMap() {
