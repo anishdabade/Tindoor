@@ -116,22 +116,6 @@ $("#submit-button").on("click", function(event) {
   event.preventDefault();
   validateForm();
 
-//     var newSearch = {
-//       job_title: response.results[i].jobtitle,
-//       location: response.results[i].formattedLocation,
-//       company: response.results[i].company,
-//       latitude: response.results[i].latitude,
-//       longitude: response.results[i].longitude,
-//       dateAdded: firebase.database.ServerValue.TIMESTAMP,
-//     };
-//     database.ref().push(newSearch);
-
-//     // console.log(newSearch.job_title);
-//     // console.log(newSearch.location);
-//     // console.log(newSearch.company);
-//     // console.log(newSearch.latitude);
-//     // console.log(newSearch.longitude);
-//   }
 // // database.ref().limitToLast(10).on("value", function(snapshot) {
 // // var sv = snapshot.val();
 
@@ -221,39 +205,4 @@ $("#submit-button").on("click", function(event) {
         });
 
        });
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // $("#result-1").append(resultSection);
-  
-  // var jobTitle = (response.results[i].jobtitle).val().trim();
-  // console.log("Job title: "+jobTitle);
-  // var location = (response.results[i].city).val().trim();
-  // var state = (response.results[i].state).val().trim();
-  // (response.results[i].snippet).val().trim();
-
-  // var locationCity = response.results[i].city;
-  // var locationState = response. results[i].state;
-  // var jobDescription = response.results[i].snippet;
-
+      }
