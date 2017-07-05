@@ -89,7 +89,7 @@ $("#submit-button").on("click", function(event){
   // console.log(city);
   // console.log(state);
 // "https://cors-anywhere.herokuapp.com/"
-console.log("I am here =" + radius);
+// console.log("I am here =" + radius);
 var queryURL = "https://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+title+"&l="+city+"%2C+"+state+"&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json"
 // console.log(queryURL);
 
@@ -100,7 +100,7 @@ var queryURL = "https://api.indeed.com/ads/apisearch?publisher=1665103808901378&
     dataType: "jsonp",
     method: "GET"
     }).done(function(response) {
-      console.log(response);
+      
 // console.log(jobTitle);
 // console.log(location);       
 answer = response;
@@ -111,7 +111,7 @@ for (var i=0; i<response.results.length; i++){
   var url = response.results[i].url;
   resultSection.addClass= ("text-center");
   resultSection.attr("id", "result-" + resultCounter);
-  $("#result-1").append(resultSection);
+  $("#result").append(resultSection);
   
   $("#result-" + resultCounter)
     .append("<h2>" + 
@@ -170,17 +170,17 @@ database.ref().push(newSearch);
 
 
 
-database.ref().limitToLast(10).on("child_added", function(snapshot) {
-var sv = snapshot.val();
+// database.ref().limitToLast(10).on("child_added", function(snapshot) {
+// var sv = snapshot.val();
 
-// console.log(sv.company);
-// console.log(sv.latitude);
-// console.log(sv.longitude);
+// // console.log(sv.company);
+// // console.log(sv.latitude);
+// // console.log(sv.longitude);
 
-flacation=[sv.company, sv.latitude, sv.longitude];
+// flacation=[sv.company, sv.latitude, sv.longitude];
 
-// console.log(flacation);
-});
+// // console.log(flacation);
+// });
 
 // });
 
@@ -195,25 +195,42 @@ function initMap() {
         
          database.ref().limitToLast(10).on("child_added", function(snapshot) {
           var sv = snapshot.val();
+          // console.log("ddd" + response);
 
-// console.log(sv.company);
-// console.log(sv.latitude);
+
 // console.log(sv.longitude);
 
-        flacation=[sv.company, sv.latitude, sv.longitude];
+        // flacation=[sv.company, sv.latitude, sv.longitude];
 
-        console.log("re+++" + flacation);
-          });
+        // console.log("re+++" + flacation);
+         
         //
-        
-        function addMarker(coords){
-          var marker = new google.maps.Marker({
-            position:coords,
-            map:map,
+        // for (var i = 0; i < 10; i++) {
+        // console.log(sv.latitude);
+          // console.log(sv.longitude);
+        var tribeca = {lat: sv.latitude, lng: sv.longitude};
+        var marker = new google.maps.Marker({
+          position: tribeca,
+          map: map,
+          // title: sv.company,
+        // };
+        // function addMarker(coords){
+        //   var marker = new google.maps.Marker({
+        //     position:coords,
+        //     map:map,
+         });
+        var companies = sv.company;
+
+        var infowindow = new google.maps.InfoWindow({
+          content: companies
+        })
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
 
         });
         }
-};
+
 
 
 
