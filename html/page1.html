@@ -23,6 +23,9 @@
 	    
 	<div class="row">
 		<div class="col-md-12">
+
+		<form name=“myForm” action=“/action_page_post.php” onsubmit=“return validateForm()” method=“post”>
+
 		  	<div class="panel panel-default">
 			  <div class="panel-heading">
 			    <h3>Job Title</h3>
@@ -32,7 +35,18 @@
 
 				    <!-- <input class="form-control" type="text" value="Job Title" id="job-input"> -->
 
-				    <input class="form-control" type="text" placeholder="Job Title" id="job-input">
+				    <input class="form-control" type="text" placeholder="Job Title" id="job-input" name="jobTitle">
+
+				    <input class="form-control" type="text" placeholder="City" id="city-input" name="location">
+
+				    <input class="form-control" type="text" placeholder="State" id="state-input" name="state">
+				    <div class="row">
+						<div class="col-md-12">
+							<button type="button" class="btn btn-primary" id="submit-button" value="Submit">Submit</button>
+						</div>
+					</div>
+
+					</form>
 
 				  </div>
 			  </div>
@@ -46,7 +60,7 @@
 
 
 
-	<div class="row">
+	<!--<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
@@ -56,22 +70,22 @@
 			  	<div class="form-group row">
 				  <div class="col-md-10">
 
-				   <!--  <input class="form-control" type="text" value="City" id="city-input">
+				    <input class="form-control" type="text" value="City" id="city-input">
 				   				  </div>
 				   				  <div class="col-md-2">
-				   <input class="form-control" type="text" value="State" id="state-input"> -->
+				   <input class="form-control" type="text" value="State" id="state-input">
 
-				    <input class="form-control" type="text" placeholder="City" id="city-input">
+				    <input class="form-control" type="text" placeholder="City" id="city-input" name="location">
 				  </div>
 				  <div class="col-md-2">
-				    <input class="form-control" type="text" placeholder="State" id="state-input">
+				    <input class="form-control" type="text" placeholder="State" id="state-input" name="state">
 
 				  </div>
 				</div>    
 			  </div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 
 	<div class="row">
@@ -92,7 +106,7 @@
 		        <input type="radio" name="radius" value="10"> 10 miles <br>
 		        <input type="radio" name="radius" value="25"> 25 miles <br>
 		        <input type="radio" name="radius" value="50"> 50 miles
-
+			  
 			  </div>
 			</div>
 		</div>
@@ -102,11 +116,11 @@
 
 
 
-	<div class="row">
+	<!--<div class="row">
 		<div class="col-md-12">
-			<button type="button" class="btn btn-primary" id="submit-button">Primary</button>
+			<button type="button" class="btn btn-primary" id="submit-button" value="Submit" onclick="validateForm()">Submit</button>
 		</div>
-	</div>
+	</div>-->
 
 
 </div>
@@ -170,7 +184,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 <!-- <script type="text/javascript" src="../javascript/page2.js"></script> -->
  <script type="text/javascript" src="../javascript/page1.js"></script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEqiSu63n6-F2BKTTuF_CnvsTpyUsYiNM&callback=initMap"">
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEqiSu63n6-F2BKTTuF_CnvsTpyUsYiNM&callback=initMap" async defer>
     </script>
 
 
