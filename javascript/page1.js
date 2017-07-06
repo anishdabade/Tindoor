@@ -124,6 +124,7 @@ function getData() {
     }).done(function(response) {
            
     answer = response;
+    console.log("Query URL: "+queryURL)
 
     //Iterate through Indeed response
     for (var i=0; i<response.results.length; i++) {
@@ -134,7 +135,14 @@ function getData() {
       var url = response.results[i].url;
       resultSection.addClass= ("text-center");
       resultSection.attr("id", "result-" + resultCounter);
+      var logoSection = $("<div>");
+      logoSection.attr("id", "logo");
+        //put the dice logo image here
+        // var logo = response.results[i].url
+
       $("#result").append(resultSection);
+      $("#result-" + resultCounter)
+        .append(logoSection);
       $("#result-" + resultCounter)
         .append("<h2>" + 
           resultCounter + "<strong> " + response.results[i].jobtitle 
@@ -143,6 +151,7 @@ function getData() {
         .append("<p>" + response.results[i].formattedLocation + "</p>");
       $("#result-" + resultCounter)
         .append("<h4>" + response.results[i].company + "</h4><br>");
+
 
       //Define search result terms
       var newSearch = {
@@ -153,6 +162,8 @@ function getData() {
         longitude: response.results[i].longitude,
         dateAdded: firebase.database.ServerValue.TIMESTAMP,
       };
+
+      //Push search results to Firebase
       database.ref().push(newSearch);
     
     } //Close for loop
