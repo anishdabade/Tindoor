@@ -1,4 +1,145 @@
+
+
+//  $(document).ready(function(){
+
+// var config = {
+//     apiKey: "AIzaSyCVVTxve00RmgEsxMZAZRBpVvyySQX3ITw",
+//     authDomain: "tindoor-4b472.firebaseapp.com",
+//     databaseURL: "https://tindoor-4b472.firebaseio.com",
+//     projectId: "tindoor-4b472",
+//     storageBucket: "tindoor-4b472.appspot.com",
+//     messagingSenderId: "234607706939"
+//   };
+//   firebase.initializeApp(config);
+
+
+//  // Grab the input from text
+
+//  $("input[name='radius-5']").click(function(){
+//     var radius = $("input[name='radius-5']:checked").val();
+//    });
+  
+//    $("input[name='radius-10']").click(function(){
+//     var radius = $("input[name='radius-10']:checked").val();
+//    });
+
+//   $("input[name='radius-15']").click(function(){
+//     var radius = $("input[name='radius-15']:checked").val();
+//    });
+
+//   $("input[name='radius-20']").click(function(){
+//     var radius = $("input[name='radius-20']:checked").val();
+//    });
+
+//  // Select the year of experience
+
+//  //Select the location
+
+//  //Select the radius in miles
+
+//  function formatQueryString(str) {
+//     var finalString;
+//     var splitString = str.split(" ");
+//     // console.log(splitString);
+
+//     if (splitString.length > 1) {
+//       finalString = splitString.join("+");
+//       // console.log(splitString.length);
+//     }
+
+//     else {
+//       finalString = str;
+        
+//     }
+
+
+//     return finalString;
+//  };
+
+
+// $("#submit-button").on("click", function(event){
+//   event.preventDefault();
+
+//   var jobTitle = $("#job-input").val().trim();
+//   var title = formatQueryString(jobTitle);
+
+//   var location = $("#city-input").val().trim();
+//   var city = formatQueryString(location);
+
+//   var state1 = $("#state-input").val().trim();
+//   var state = formatQueryString(state1);
+
+//   // console.log(title);
+//   // console.log(city);
+//   // console.log(state);
+// // "https://cors-anywhere.herokuapp.com/"
+// // "https://cors.now.sh/"
+// //var queryURL = "https://api.giphy.com/v1/gifs/search?q=cat&api_key=dc6zaTOxFJmzC&limit=10";
+// var queryURL = "https://cors.now.sh/" + "https://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+title+"&l="+city+"%2C+"+state+"&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json"
+// //var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=java&city=New+York,+NY";
+// console.log(queryURL);
+
+
+
+
+//  $.ajax({
+//     url: queryURL,
+//     //dataType: "jsonp",
+//     method: "GET",
+//     success: function(response) {
+//       console.log("I am here");
+//       console.log(response);
+//     }
+//     // headers: {
+//     //               'Access-Control-Allow-Origin': '*'
+//     //             },
+//     // crossDomain: true
+//     }).fail(function(response, status, e) {
+//       console.log("Error occured - " + response);
+//       console.log(response);
+
+//   });
+
+
+// });
+// });
+
+
+
+
+
+
+
+
+
+
+function validate()
+{
+    if(   document.getElementById("exampleInputEmail1").value == "anish.dabade@gmail.com"
+       && document.getElementById("exampleInputPassword1").value == "workshop" )
+    {
+        //alert( "validation succeeded" );
+      
+          return window.open(url, 'page1.html');
+        //window.location.href='page1.html';
+       
+    }
+    else
+    {
+        alert( "validation failed" );
+        //location.href="fail.html";
+    }
+}
+
+
+
+
+// $(document).ready(function(){
+
+
+
 // Initialize Firebase
+
 var config = {
     apiKey: "AIzaSyCS4KuIbLP5fBej1eOxbNdS3ssOQijwadg",
     authDomain: "test1-49f56.firebaseapp.com",
@@ -6,6 +147,8 @@ var config = {
     projectId: "test1-49f56",
     storageBucket: "test1-49f56.appspot.com",
     messagingSenderId: "373692440483"
+
+  
   };
   firebase.initializeApp(config);
 
@@ -163,17 +306,23 @@ function getData() {
   var jobTitle = $("#job-input").val().trim();
   title = formatQueryString(jobTitle);
 
+
   var location = $("#city-input").val().trim();
   city = formatQueryString(location);
+
 
   var state = $("#state-input").val().trim();
   state = formatQueryString(state);
 
+
   var radius = $('input[type="radio"]:checked').val();
+
 
   // Insert before queryURL if jsonp doesn't work - "https://cors-anywhere.herokuapp.com/"
   var queryURL = "https://cors.now.sh/"+"https://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+title+"&l="+city+"%2C+"+state+"&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json";
 
+
+// $('#test').html(queryURL);
 
   //Call on Indeed queryURL
   $.ajax({
@@ -181,6 +330,7 @@ function getData() {
     dataType: "jsonp",
     method: "GET"
     }).done(function(response) {
+<<<<<<< HEAD
            
     answer = response;
 
