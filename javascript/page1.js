@@ -25,7 +25,7 @@ function validateForm() {
 
     if (x == "" || y == "" || z == "")  {       
       $("#search-results").append('<div id="error"> Please fill out the appropriate sections. </div>');
-    } 
+    }
     else {
       $("#error").empty();
       getData();
@@ -95,7 +95,7 @@ function initMap() {
         })
         marker.addListener('click', function() {
           infowindow.open(map, marker);
-        });
+        }); 
   });
 }
 
