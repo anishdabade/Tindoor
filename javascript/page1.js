@@ -144,7 +144,7 @@ function getData() {
 
       //Appends new divs 
       $('#table > tbody')
-        .append('<tr>'+tableHead+resultCounter+'</th><td><a href="'+response.results[i].url+'"><h2>'+response.results[i].jobtitle+'</h2></a></td><td><h4>'+
+        .append('<tr>'+tableHead+resultCounter+'</th><td><a href="'+response.results[i].url+'" target="_blank"><h2>'+response.results[i].jobtitle+'</h2></a></td><td><h4>'+
         response.results[i].company+'</h4></td><td><p>'+response.results[i].snippet+'</p></td></tr>');
 
       
