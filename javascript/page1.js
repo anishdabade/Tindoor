@@ -129,29 +129,7 @@ function getData() {
     //Iterate through Indeed response
     for (var i=0; i<response.results.length; i++) {
       resultCounter++;
-
-      //Appends new divs
-      // var resultSection = $("<td>");
-      // var url = response.results[i].url;
-      // resultSection.attr("id", "result-" + resultCounter);
-      // var logoSection = $("<div>");
-      // logoSection.attr("id", "logo");
-      //   //put the dice logo image here
-      //   // var logo = response.results[i].url
-
-      // $("#table > tbody").append(resultSection);
-      // $("#result-" + resultCounter)
-      //   .append(logoSection);
-      // $("#result-" + resultCounter)
-      //   .append("<h2>" + 
-      //     resultCounter + "<strong> " + response.results[i].jobtitle 
-      //     + "</strong></h2>");
-      // $("#result-" + resultCounter)
-      //   .append("<p>" + response.results[i].formattedLocation + "</p>");
-      // $("#result-" + resultCounter)
-      //   .append("<h4>" + response.results[i].company + "</h4><br>");
-
-    
+   
       var tableHead = $("<th>");
       tableHead.attr("scope", "row");
       tableHead.attr("id", "result-"+resultCounter);
@@ -160,10 +138,13 @@ function getData() {
       // console.log("Location: "+response.results[i].formattedLocation);
       // console.log("Company Name: "+response.results[i].company);
 
-
+      //Appends new divs 
       $('#table > tbody')
         .append('<tr>'+tableHead+resultCounter+'</th><td><h2>'+response.results[i].jobtitle+'</h2></td><td><h4>'+
         response.results[i].company+'</h4></td><td><p>'+response.results[i].snippet+'</p></td></tr>');
+
+      
+      
 
       //Define search result terms
       var newSearch = {
@@ -204,6 +185,12 @@ $(document).ready(function(){
 
 $("#submit-button").on("click", function(event) {
   event.preventDefault();
+
+  //Automatically scroll down to search-results div
+  $('html,body').animate({
+        scrollTop: $("#search-results").offset().top},
+        'slow');
+
   validateForm();
 
 });//onclick
