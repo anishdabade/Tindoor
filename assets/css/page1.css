@@ -10,10 +10,10 @@
 	width: 100%;
 
 }
-h1{
+/*h1{
   font-size:100px;
   position:relative;
-}
+}*/
 
 /*
 text-shadow originated from: https://codepen.io/zitrusfrisch
@@ -36,9 +36,9 @@ text-shadow originated from: https://codepen.io/zitrusfrisch
                   0 20px 20px rgba(0,0,0,.3);
 }
 
-strong{
+/*strong{
   font-size:200px;
-}
+}*/
 
 body {
 	background: url("../images/noisy_grid/noisy_grid.png");
