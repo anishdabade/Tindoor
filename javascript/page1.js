@@ -16,6 +16,9 @@ var config = {
 
 
 function validateForm() {
+    //Clear the search-results div
+    $('#table > tbody').empty();
+
     var x = $('#job-input').val().trim();
     console.log("x", x); 
     var y = $('#city-input').val().trim();
@@ -23,7 +26,7 @@ function validateForm() {
     var z = $('#state-input').val().trim();
     console.log("z", z); 
 
-    if (x == "" || y == "" || z == "")  {       
+    if (x == "" || y == "" || z == "")  {     
       $("#search-results").append('<div id="error"> Please fill out the appropriate sections. </div>');
     }
     else {
