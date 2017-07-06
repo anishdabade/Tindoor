@@ -140,15 +140,14 @@ function getData() {
       // console.log("Job Title: "+response.results[i].jobtitle);
       // console.log("Location: "+response.results[i].formattedLocation);
       // console.log("Company Name: "+response.results[i].company);
+      var jobLink = response.results[i].jobtitle
 
       //Appends new divs 
       $('#table > tbody')
-        .append('<tr>'+tableHead+resultCounter+'</th><td><h2>'+response.results[i].jobtitle+'</h2></td><td><h4>'+
+        .append('<tr>'+tableHead+resultCounter+'</th><td><a href="'+response.results[i].url+'"><h2>'+response.results[i].jobtitle+'</h2></a></td><td><h4>'+
         response.results[i].company+'</h4></td><td><p>'+response.results[i].snippet+'</p></td></tr>');
 
       
-      
-
       //Define search result terms
       var newSearch = {
         job_title: response.results[i].jobtitle,
@@ -186,7 +185,7 @@ function formatQueryString(str) {
 $(document).ready(function(){
 
 
-$("#submit-button").on("click", function(event) {
+$(".panel-body").on("click", "#submit-button", function(event) {
   event.preventDefault();
 
   //Automatically scroll down to search-results div
