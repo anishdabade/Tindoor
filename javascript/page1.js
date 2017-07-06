@@ -57,15 +57,41 @@ function validateForm() {
 // console.log(longitudes); 
 // }
 
+function refreshMap()
+        {               
+            if (vis)            
+            {
+                trafficLayer.setMap(null)
+                vis = false;
+            }
+            else
+            {
+                trafficLayer.setMap(map);
+                vis = true;
+            }            
+        }
+
+//   function toggleBounce() {
+//   if (marker.getAnimation() !== null) {
+//     marker.setAnimation(null);
+//   } else {
+//     marker.setAnimation(google.maps.Animation.BOUNCE);
+//   }
+// }
+
 function initMap() {
+
   var options = {
     zoom: 10,
     center: {lat: 37.773972, lng: -122.431297}
   };
     
   var map = new google.maps.Map(document.getElementById('map'), options);
-    
-  database.ref().limitToLast(10).on("child_added", function(snapshot) {
+    //setMapOnAll(null);
+
+
+  database.ref().limitToLast(10).on("value", function(snapshot) {
+    clearMarkers();
     var sv = snapshot.val();
     // console.log("ddd" + response);
     //console.log(sv.longitude);
@@ -76,10 +102,13 @@ function initMap() {
       // for (var i = 0; i < 10; i++) {
         // console.log(sv.latitude);
           // console.log(sv.longitude);
-        var tribeca = {lat: sv.latitude, lng: sv.longitude};
+        var tribeca = {lat: parseFloat(sv.latitude), lng: parseFloat(sv.longitude)};
+
+        
         var marker = new google.maps.Marker({
           position: tribeca,
           map: map,
+
           // title: sv.company,
         // };
         // function addMarker(coords){
@@ -87,6 +116,26 @@ function initMap() {
         //     position:coords,
         //     map:map,
         });
+        markers.push(marker);
+        console.log(markers);
+
+
+        // Removes the markers from the map, but keeps them in the array.
+      
+
+
+         // submit button
+        // marker.addListener('click', toggleBounce);
+        // console.log(marker);
+
+        // trafficLayer = new google.maps.TrafficLayer();
+
+        //     trafficLayer.setMap(map);
+        //     vis = true;
+        //     setInterval(function ()
+        //     {
+        //         refreshMap();
+        //     }, 3000);
 
         var companies = sv.company;
 
@@ -98,6 +147,16 @@ function initMap() {
         });
   });
 }
+
+
+
+
+function clearMarkers() {
+
+  
+        markers = [];
+       
+      }
 
 
 function getData() {
@@ -113,7 +172,7 @@ function getData() {
   var radius = $('input[type="radio"]:checked').val();
 
   // Insert before queryURL if jsonp doesn't work - "https://cors-anywhere.herokuapp.com/"
-  var queryURL = "https://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+title+"&l="+city+"%2C+"+state+"&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json"
+  var queryURL = "https://cors.now.sh/"+"https://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+title+"&l="+city+"%2C+"+state+"&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json";
 
 
   //Call on Indeed queryURL
@@ -153,7 +212,7 @@ function getData() {
         longitude: response.results[i].longitude,
         dateAdded: firebase.database.ServerValue.TIMESTAMP,
       };
-      database.ref().push(newSearch);
+      database.ref().set(newSearch);
     
     } //Close for loop
 
