@@ -131,7 +131,7 @@ function getData() {
       resultCounter++;
 
       //Appends new divs
-      // var resultSection = $("");
+      // var resultSection = $("<td>");
       // var url = response.results[i].url;
       // resultSection.attr("id", "result-" + resultCounter);
       // var logoSection = $("<div>");
@@ -139,7 +139,7 @@ function getData() {
       //   //put the dice logo image here
       //   // var logo = response.results[i].url
 
-      // $("#result").append(resultSection);
+      // $("#table > tbody").append(resultSection);
       // $("#result-" + resultCounter)
       //   .append(logoSection);
       // $("#result-" + resultCounter)
@@ -151,13 +151,19 @@ function getData() {
       // $("#result-" + resultCounter)
       //   .append("<h4>" + response.results[i].company + "</h4><br>");
 
-      var tableRow = $("<tr>");
+    
       var tableHead = $("<th>");
       tableHead.attr("scope", "row");
-      tableHead.html(response.results[i]);
+      tableHead.attr("id", "result-"+resultCounter);
+      // console.log("Table Head: "+tableHead);
+      // console.log("Job Title: "+response.results[i].jobtitle);
+      // console.log("Location: "+response.results[i].formattedLocation);
+      // console.log("Company Name: "+response.results[i].company);
 
-      
 
+      $('#table > tbody')
+        .append('<tr>'+tableHead+'</th><td>'+response.results[i].jobtitle+'</td><td>'+
+        response.results[i].company+'</td><td>'+response.results[i].snippet+'</td></tr>');
 
       //Define search result terms
       var newSearch = {
