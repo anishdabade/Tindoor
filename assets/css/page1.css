@@ -20,6 +20,13 @@ BASE COLOR: 019BAD
 
 }
 
+.form-control {
+	margin-bottom: 20px;
+}
+
+#radius-answer {
+	margin-bottom: 10px;
+}
 
 body {
 	background: url("../images/noisy_grid/noisy_grid.png");
