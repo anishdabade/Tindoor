@@ -69,7 +69,7 @@ function initMap() {
   };
     
   var map = new google.maps.Map(document.getElementById('map'), options);
-    
+   
   database.ref().limitToLast(10).on("child_added", function(snapshot) {
     var sv = snapshot.val();
     // console.log("ddd" + response);
@@ -81,9 +81,11 @@ function initMap() {
       // for (var i = 0; i < 10; i++) {
         // console.log(sv.latitude);
           // console.log(sv.longitude);
-        var tribeca = {lat: sv.latitude, lng: sv.longitude};
+    
+
+        var position = {lat: sv.latitude, lng: sv.longitude};
         var marker = new google.maps.Marker({
-          position: tribeca,
+          position: position,
           map: map,
           // title: sv.company,
         // };
@@ -102,6 +104,8 @@ function initMap() {
           infowindow.open(map, marker);
         });
   });
+
+
 }
 
 
