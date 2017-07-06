@@ -124,33 +124,39 @@ function getData() {
     }).done(function(response) {
            
     answer = response;
-    console.log("Query URL: "+queryURL)
+    console.log("Query URL: "+queryURL);
 
     //Iterate through Indeed response
     for (var i=0; i<response.results.length; i++) {
       resultCounter++;
 
       //Appends new divs
-      var resultSection = $("<div>");
-      var url = response.results[i].url;
-      resultSection.addClass= ("text-center");
-      resultSection.attr("id", "result-" + resultCounter);
-      var logoSection = $("<div>");
-      logoSection.attr("id", "logo");
-        //put the dice logo image here
-        // var logo = response.results[i].url
+      // var resultSection = $("");
+      // var url = response.results[i].url;
+      // resultSection.attr("id", "result-" + resultCounter);
+      // var logoSection = $("<div>");
+      // logoSection.attr("id", "logo");
+      //   //put the dice logo image here
+      //   // var logo = response.results[i].url
 
-      $("#result").append(resultSection);
-      $("#result-" + resultCounter)
-        .append(logoSection);
-      $("#result-" + resultCounter)
-        .append("<h2>" + 
-          resultCounter + "<strong> " + response.results[i].jobtitle 
-          + "</strong></h2>");
-      $("#result-" + resultCounter)
-        .append("<p>" + response.results[i].formattedLocation + "</p>");
-      $("#result-" + resultCounter)
-        .append("<h4>" + response.results[i].company + "</h4><br>");
+      // $("#result").append(resultSection);
+      // $("#result-" + resultCounter)
+      //   .append(logoSection);
+      // $("#result-" + resultCounter)
+      //   .append("<h2>" + 
+      //     resultCounter + "<strong> " + response.results[i].jobtitle 
+      //     + "</strong></h2>");
+      // $("#result-" + resultCounter)
+      //   .append("<p>" + response.results[i].formattedLocation + "</p>");
+      // $("#result-" + resultCounter)
+      //   .append("<h4>" + response.results[i].company + "</h4><br>");
+
+      var tableRow = $("<tr>");
+      var tableHead = $("<th>");
+      tableHead.attr("scope", "row");
+      tableHead.html(response.results[i]);
+
+      
 
 
       //Define search result terms
