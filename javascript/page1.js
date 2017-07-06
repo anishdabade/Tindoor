@@ -162,8 +162,8 @@ function getData() {
 
 
       $('#table > tbody')
-        .append('<tr>'+tableHead+'</th><td>'+response.results[i].jobtitle+'</td><td>'+
-        response.results[i].company+'</td><td>'+response.results[i].snippet+'</td></tr>');
+        .append('<tr>'+tableHead+resultCounter+'</th><td><h2>'+response.results[i].jobtitle+'</h2></td><td><h4>'+
+        response.results[i].company+'</h4></td><td><p>'+response.results[i].snippet+'</p></td></tr>');
 
       //Define search result terms
       var newSearch = {
