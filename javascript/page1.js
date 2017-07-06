@@ -14,6 +14,9 @@ var config = {
   var markers = [];
   var database = firebase.database();
 
+  var tl = new TimelineMax({repeat:600, repeatDelay:1, yoyo:true});
+  tl.staggerTo("h1,h2", 0.2, {className:"+=superShadow", top:"-=10px", ease:Power1.easeIn}, "0.3", "start")
+  // tl.staggerTo("h2", 0.5, {className:"+=superShadow", top:"-=10px", ease:Power1.easeIn}, "0.3", "start")
 
 function validateForm() {
     //Clear the search-results div
@@ -60,7 +63,14 @@ function validateForm() {
 // console.log(longitudes); 
 // }
 
+function clearMapDiv(){
+  $('#map').empty();
+}
+
 function initMap() {
+
+  clearMapDiv();
+
   var options = {
     zoom: 10,
     center: {lat: 37.773972, lng: -122.431297}
