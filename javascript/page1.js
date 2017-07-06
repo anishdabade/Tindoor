@@ -13,6 +13,11 @@ var config = {
   var map;
   var markers = [];
   var database = firebase.database();
+  var tl = new TimelineMax({repeat:600, repeatDelay:1, yoyo:true});
+
+
+tl.staggerTo("h1,h2", 0.2, {className:"+=superShadow", top:"-=10px", ease:Power1.easeIn}, "0.3", "start")
+// tl.staggerTo("h2", 0.5, {className:"+=superShadow", top:"-=10px", ease:Power1.easeIn}, "0.3", "start")
 
 
 function validateForm() {
