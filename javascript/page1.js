@@ -6,17 +6,17 @@ var config = {
     projectId: "test1-49f56",
     storageBucket: "test1-49f56.appspot.com",
     messagingSenderId: "373692440483"
-  };
-  firebase.initializeApp(config);
+};
 
-  var resultCounter = 0;
-  var map;
-  var markers = [];
-  var database = firebase.database();
+firebase.initializeApp(config);
+var resultCounter = 0;
+var map;
+var markers = [];
+var database = firebase.database();
 
-  var tl = new TimelineMax({repeat:600, repeatDelay:1, yoyo:true});
-  tl.staggerTo("h1,h2", 0.2, {className:"+=superShadow", top:"-=10px", ease:Power1.easeIn}, "0.3", "start")
-  // tl.staggerTo("h2", 0.5, {className:"+=superShadow", top:"-=10px", ease:Power1.easeIn}, "0.3", "start")
+var tl = new TimelineMax({repeat:600000, repeatDelay:1, yoyo:true});
+tl.staggerTo("h1,h2", 0.2, {className:"+=superShadow", top:"-=10px", ease:Power1.easeIn}, "0.3", "start")
+  
 
 function validateForm() {
     //Clear the search-results div
@@ -38,30 +38,7 @@ function validateForm() {
     }
 }
 
-//function googleMapLat {
-  // database.ref().limitToLast(10).on("value", function(snapshot) {
-// var sv = snapshot.val();
 
-//       // Console.loging the last user's data
-//       // console.log(sv.location);
-//       // console.log(sv.latitude);
-//       // console.log(sv.longitude);
-//      latitudes = sv.latitude;
-
-//       // locations = sv.location;
-//       // latitudes = sv.latitude;
-//       // longitudes = sv.longitude;
-//       // Handle the errors
-
-//       // console.log("I am here: loation" + location);
-//     });
-
-//   });//snapshot
-
-// console.log(sv.);
-// console.log(latitudes);
-// console.log(longitudes); 
-// }
 
 function clearMapDiv(){
   $('#map').empty();
@@ -80,25 +57,11 @@ function initMap() {
     
   database.ref().limitToLast(10).on("child_added", function(snapshot) {
     var sv = snapshot.val();
-    // console.log("ddd" + response);
-    //console.log(sv.longitude);
-
-    // flacation=[sv.company, sv.latitude, sv.longitude];
-    // console.log("re+++" + flacation);
-        
-      // for (var i = 0; i < 10; i++) {
-        // console.log(sv.latitude);
-          // console.log(sv.longitude);
+    
         var tribeca = {lat: sv.latitude, lng: sv.longitude};
         var marker = new google.maps.Marker({
           position: tribeca,
           map: map,
-          // title: sv.company,
-        // };
-        // function addMarker(coords){
-        //   var marker = new google.maps.Marker({
-        //     position:coords,
-        //     map:map,
         });
 
         var companies = sv.company;
@@ -109,7 +72,7 @@ function initMap() {
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         }); 
-  });
+    });
 }
 
 
@@ -125,8 +88,8 @@ function getData() {
 
   var radius = $('input[type="radio"]:checked').val();
 
-  // Insert before queryURL if jsonp doesn't work - "https://cors-anywhere.herokuapp.com/"
-  var queryURL = "https://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+title+"&l="+city+"%2C+"+state+"&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json"
+  // Insert before queryURL if jsonp doesn't work - "https://cors.now.sh/"
+  var queryURL = "https://cors.now.sh/"+"https://api.indeed.com/ads/apisearch?publisher=1665103808901378&q="+title+"&l="+city+"%2C+"+state+"&sort=&radius="+radius+"&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json"
 
 
   //Call on Indeed queryURL
@@ -146,10 +109,6 @@ function getData() {
       var tableHead = $("<th>");
       tableHead.attr("scope", "row");
       tableHead.attr("id", "result-"+resultCounter);
-      // console.log("Table Head: "+tableHead);
-      // console.log("Job Title: "+response.results[i].jobtitle);
-      // console.log("Location: "+response.results[i].formattedLocation);
-      // console.log("Company Name: "+response.results[i].company);
       var jobLink = response.results[i].jobtitle
 
       //Appends new divs 
