@@ -15,4 +15,4 @@ A job search engine with the help of indeed.com API and pin point that location 
 ![alt text](./assets/images/result.JPG)
 
 * Google API to pin point that location on google maps.
-![alt text](./assets/images/map.JPG)
+![alt text](./assets/images/map.png)
