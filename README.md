@@ -8,4 +8,4 @@ A job search engine with the help of indeed.com API and pin point that location 
 
 ## Home
 * Search a job with a job title and location.
-![alt text](./assets/images/home.jpg)
+![alt text](./assets/images/home.JPG)
